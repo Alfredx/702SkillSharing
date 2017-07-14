@@ -1,0 +1,16 @@
+1.Æ«º¯Êı
+
+def say(word):
+    print(word)
+
+say_hello = partial(say, word="hello")
+
+say("hello")
+say_hello
+
+
+2.ÄäÃûº¯Êı
+
+say = lambda word: print(word)
+
+say("hello")

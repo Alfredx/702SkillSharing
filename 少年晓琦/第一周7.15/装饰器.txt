@@ -1,0 +1,76 @@
+一、装饰器
+1.python的函数是对象
+
+def hello():
+    print("hello,world~!")
+
+hello()
+hello
+say = hello
+
+say()
+
+2.内置函数 以及 域
+
+def say():
+    def say_hello():
+        print("hello,world~!")
+
+    return say_hello
+
+say()
+# say_hello()
+
+
+1+2
+
+def say():
+    def say_hello():
+        print("hello,world~!")
+
+    return say_hello
+
+hello = say()
+hello()
+say()()
+
+3.参数（函数）传递
+
+def say(func_word):
+    func_word()
+
+say(hello)
+
+4.装饰器
+
+def people_say(func):
+    def say():
+        print("Hi!")
+        func()
+    return say
+
+chang = people_say(hello)
+chang()
+
+@people_say
+def hello():
+    print("hello,world!")
+
+@people_say
+def mmp():
+    print("mmp")
+
+5.进阶-多层装饰器
+
+def people_write(func):
+    def write():
+        print("write")
+        func()
+    return write
+
+@people_write
+@people_say
+def hello():
+    print("hello,world!")
+
+people_write(people_say(hello))
